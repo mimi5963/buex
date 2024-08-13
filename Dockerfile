@@ -1,4 +1,4 @@
-# 1. Maven 빌드 단계
+# 1. Maven 빌드 단계 - jdk 11 메이븐
 FROM maven:3.9.8-eclipse-temurin-11 AS build
 
 # 2. 프로젝트 소스 복사
@@ -10,8 +10,8 @@ WORKDIR /app
 # 4. Maven을 사용하여 프로젝트 빌드 (테스트 생략)
 RUN mvn clean package -DskipTests
 
-# 5. Tomcat 베이스 이미지
-FROM rapidfort/tomcat9-openjdk11-lb
+# 5. Tomcat 베이스 이미지 톰캣9에jdk11
+FROM tomcat:9-jdk11
 
 # 6. 빌드된 WAR 파일을 Tomcat의 웹앱 디렉토리에 복사
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
