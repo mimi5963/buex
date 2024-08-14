@@ -16,4 +16,4 @@ FROM tomcat:9-jdk11
 # 6. 빌드된 WAR 파일을 Tomcat의 웹앱 디렉토리에 복사
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
-# 7. Tomcat 실행 (기본 설정으로 이미 ENTRYPOINT가 설정되어 있음) test1
+# 7. Tomcat 실행 (기본 설정으로 이미 ENTRYPOINT가 설정되어 있음) test2
